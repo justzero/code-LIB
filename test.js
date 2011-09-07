@@ -6,3 +6,4 @@ fs.readFile(file, 'utf8', function(err, data) {
 	console.log(data);
 	console.log("hello gits!");
 });
+oconsole.log('this is node js!');
