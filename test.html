@@ -12,15 +12,15 @@
 <a href="http://www.baidu.com/"> ghaost</a>
 <script type="text/javascript">
 	var links = document.getElementsByTagName('a'),
-	    bingo = function(elem) {
-			return (/ghost/).test(elem.innerHTML);
-		},
-		changeEvent = function(elem) {
-			elem.onclick = function() {
-				alert('错误信息!!');
-				return false;
-			};
+	bingo = function(elem) {
+		return (/ghost/).test(elem.innerHTML);
+	},
+	changeEvent = function(elem) {
+		elem.onclick = function() {
+			alert('错误信息!!');
+			return false;
 		};
+	};
 	for (var i=0, len=links.length; i < len; i++) {
 		if (bingo(links[i])) changeEvent(links[i]);
 	};
