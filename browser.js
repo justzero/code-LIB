@@ -1,4 +1,3 @@
-var dao={};
 (function(){
         var ua = navigator.userAgent.toLowerCase(),
             rwebkit = /(webkit)[ \/]([\w.]+)/,
@@ -12,7 +11,9 @@ var dao={};
             ua.indexOf("compatible") < 0 && rmozilla.exec( ua ) ||
             [];
         
-        dao['browser'] = match[1] || "";
-        dao['version'] = match[2] || "0";
+        var browser = match[1] || "";
+        var version = match[2] || "0";
+		var div = document.createElement('div');
+		div.innerHTML = 'userAgent : ' + ua + '<br/>browser : ' + browser + '<br/>version : ' + version;
+		document.body.appendChild(div);
 })();
-alert(dao.browser+', '+dao.version);

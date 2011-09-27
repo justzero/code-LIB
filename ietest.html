@@ -4,7 +4,7 @@
 <title>ie test</title>
 </head>
 <body>
-	<span> this is a ie tester! </span>
+	<h2> Browser test </h2>
 	<div id="div"></div>
 	<script type="text/javascript">
 		var ie = ((function(){
@@ -15,7 +15,8 @@
 				div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->', all[0]);
 				return v > 4 ? v : noIE;
 		})());
-		document.getElementById('div').innerHTML = (ie) ? 'browser is : IE ' + ie : 'browser is not IE!';
+		document.getElementById('div').innerHTML = (ie) ? 'the browser-core is : IE ' + ie : ' the browser-core is not IE';
 	</script>
+	<script type="text/javascript" src="./browser.js"></script>
 </body>
 </html>
