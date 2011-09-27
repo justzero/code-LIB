@@ -19,10 +19,10 @@ var _ser = {
 	get: function(res, file, jsonp) {
 		var body, headers;
 		var content_type = mime.lookupExtension(_ser.extname(file));
-		console.log('loading ' + file + '...');
+		console.log('loading + ' + file + '...');
 		fs.readFile(basedir + file, function(err, data) {
 			if (err) {
-				console.log('Error load ' + file);
+				console.log('Error loaded ' + file);
 				var data = 'Not Font\n';
 				res.writeHead(404, {
 					"Content-Type": "text/plain",
