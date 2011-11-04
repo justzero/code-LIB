@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>modEvent page</title>
+</head>
+<body>
+    <a id="btn" href="http://www.youdao.com/" title="youdao"> youdao </a><br/>
+    <a id="bt2" href="#" title="bt2"> 点击模拟bt1的事件(ie/chrome/ff/..官方保准模拟) </a><br/>
+    <a id="bt3" href="#" title="bt3"> 点击模拟bt1的事件(ie elem.click) </a><br/>
+</body>
+<script type="text/javascript">
+    var bt = document.getElementById('btn'),
+        bt2 = document.getElementById('bt2'),
+        bt3 = document.getElementById('bt3');
+
+    bt.onclick = function() {
+        alert('this is a onclick function!');
+    }
+
+    function createEvent (eventTarget,eventName){
+    try{
+        if(eventTarget.dispatchEvent){  // chrome,ff..
+            console.log('noIe');
+            var evt = document.createEvent("MouseEvents");
+            evt.initEvent(eventName,false,true);
+            eventTarget.dispatchEvent(evt);
+        }else if(eventTarget.fireEvent){ // ie
+            eventTarget.fireEvent('on'+eventName); // only alert()...
+        }else{
+            eventTarget[ type ](); // alert()... + href addr
+        }
+    }catch(e){
+        alert(e);
+    }
+    }
+
+    bt2.onclick = function() {
+        createEvent(bt, 'click');
+    };
+    bt3.onclick = function() {
+        // this is only run in ie
+        bt.click();
+    }
+</script>
+</html>
